@@ -158,7 +158,7 @@ a {
 
 /* Page Layout */
 .events-main {
-  padding: 60px 20px;
+  padding:  20px 60px;
   background-color: #f4f4f4;
   display: flex;
   flex-direction: column;
@@ -536,7 +536,7 @@ section.max-w-4xl {
 
 .team-member {
   text-align: center;
-  background-color: #f9f9f9;
+  background-color: #ffffff;
   padding: 20px;
   border-radius: 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -566,12 +566,10 @@ section.max-w-4xl {
 
 .team-member p {
   font-style: italic;
+  font-weight: bold;
   color: black;
   margin-top: 10px;
 }
-
-
-
 
 /* Social Links Container */
 .social-links {
@@ -598,7 +596,7 @@ section.max-w-4xl {
 
 .social-icon i {
   font-size: 1.5rem;
-  color: inherit; /* Ensures the color of the icon inherits the default color */
+  color: ghostwhite; /* Ensures the color of the icon inherits the default color */
   transition: color 0.3s ease;
 }
 
@@ -612,20 +610,13 @@ section.max-w-4xl {
   color: #3b5998; /* Facebook color on hover */
 }
 
-/* Instagram Icon */
-.social-icon.instagram:hover i {
-  color: #e4405f; /* Instagram color on hover */
-}
+
 
 /* LinkedIn Icon */
 .social-icon.linkedin:hover i {
   color: #0077b5; /* LinkedIn color on hover */
 }
 
-/* Mail Icon */
-.social-icon.mail:hover i {
-  color: #d14836; /* Mail color on hover */
-}
 
 
 
