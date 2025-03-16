@@ -1,5 +1,6 @@
 // components/EventCard.tsx
 import '../globals.css';
+import Image from "next/image";
 
 interface EventCardProps {
     title: string;
@@ -11,7 +12,7 @@ interface EventCardProps {
 export default function EventCard({ title, date, description, imageUrl }: EventCardProps) {
     return (
         <div className="event-card">
-            <img src={imageUrl} alt={title} className="event-image" />
+            <Image src={imageUrl} alt={title} className="event-image" />
             <h2>{title}</h2>
             <p className="event-date">{date}</p>
             <p>{description}</p>

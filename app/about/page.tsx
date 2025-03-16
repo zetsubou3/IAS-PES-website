@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import TeamSection from "../components/TeamSection";
-import Image from "next/image";
+
 import "../globals.css";
 
 export default function About() {
