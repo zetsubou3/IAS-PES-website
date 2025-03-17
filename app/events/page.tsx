@@ -199,26 +199,26 @@ export default function Events() {
     return (
         <div>
             <Navbar />
-            <main className="events-main flex flex-col items-center">
+            <main className="events-main flex flex-col items-center px-4 sm:px-8 md:px-16 lg:px-24">
 
                 {/* Upcoming Events Section */}
                 <section className="event-section">
-                    <h1 className="event-title">Upcoming Events</h1>
-                    <p className="event-description">
+                    <h1 className="event-title text-3xl sm:text-4xl md:text-5xl font-bold text-center">Upcoming Events</h1>
+                    <p className="event-description text-lg sm:text-xl md:text-2xl text-center mb-6">
                         Stay tuned for our upcoming technology and innovation events.
                     </p>
                 </section>
 
                 {/* Upcoming Events Horizontal Scroll */}
                 <div className="w-full flex justify-start overflow-x-auto py-6">
-                    <div className="events-list flex space-x-6">
+                    <div className="events-list flex space-x-6 lg:space-x-12">
                         {currentUpcomingEvents.map((event, index) => (
                             <EventCard
                                 key={index}
                                 title={event.title}
                                 date={event.date}
                                 description={event.description}
-                                imageUrl={event.imageUrl} // Add image
+                                imageUrl={event.imageUrl || '/images/default-placeholder.png'}
                             />
                         ))}
                     </div>
@@ -229,38 +229,40 @@ export default function Events() {
                     <button
                         onClick={() => setCurrentPageUpcoming(currentPageUpcoming - 1)}
                         disabled={currentPageUpcoming === 1}
-                        className="px-4 py-2 bg-green-600 text-white rounded-md disabled:bg-gray-300"
+                        className="px-4 py-2 bg-green-600 text-white rounded-md disabled:bg-gray-300 disabled:cursor-not-allowed"
+                        aria-label="Previous Page of Upcoming Events"
                     >
                         Previous
                     </button>
-                    <span>Page {currentPageUpcoming} of {totalPagesUpcoming}</span>
+                    <span className="text-lg">Page {currentPageUpcoming} of {totalPagesUpcoming}</span>
                     <button
                         onClick={() => setCurrentPageUpcoming(currentPageUpcoming + 1)}
                         disabled={currentPageUpcoming === totalPagesUpcoming}
-                        className="px-4 py-2 bg-green-600 text-white rounded-md disabled:bg-gray-300"
+                        className="px-4 py-2 bg-green-600 text-white rounded-md disabled:bg-gray-300 disabled:cursor-not-allowed"
+                        aria-label="Next Page of Upcoming Events"
                     >
                         Next
                     </button>
                 </div>
 
                 {/* Past Events Section */}
-                <section className="event-section">
-                    <h1 className="event-title">Past Events</h1>
-                    <p className="event-description">
+                <section className="event-section mt-16">
+                    <h1 className="event-title text-3xl sm:text-4xl md:text-5xl font-bold text-center">Past Events</h1>
+                    <p className="event-description text-lg sm:text-xl md:text-2xl text-center mb-6">
                         Take a look at some of our previous events.
                     </p>
                 </section>
 
                 {/* Past Events Horizontal Scroll */}
                 <div className="w-full flex justify-start overflow-x-auto py-6">
-                    <div className="events-list flex space-x-6">
+                    <div className="events-list flex space-x-6 lg:space-x-12">
                         {currentPastEvents.map((event, index) => (
                             <EventCard
                                 key={index}
                                 title={event.title}
                                 date={event.date}
                                 description={event.description}
-                                imageUrl={event.imageUrl} // Add image
+                                imageUrl={event.imageUrl || '/images/default-placeholder.png'}
                             />
                         ))}
                     </div>
@@ -271,15 +273,17 @@ export default function Events() {
                     <button
                         onClick={() => setCurrentPagePast(currentPagePast - 1)}
                         disabled={currentPagePast === 1}
-                        className="px-4 py-2 bg-green-600 text-white rounded-md disabled:bg-gray-300"
+                        className="px-4 py-2 bg-green-600 text-white rounded-md disabled:bg-gray-300 disabled:cursor-not-allowed"
+                        aria-label="Previous Page of Past Events"
                     >
                         Previous
                     </button>
-                    <span>Page {currentPagePast} of {totalPagesPast}</span>
+                    <span className="text-lg">Page {currentPagePast} of {totalPagesPast}</span>
                     <button
                         onClick={() => setCurrentPagePast(currentPagePast + 1)}
                         disabled={currentPagePast === totalPagesPast}
-                        className="px-4 py-2 bg-green-600 text-white rounded-md disabled:bg-gray-300"
+                        className="px-4 py-2 bg-green-600 text-white rounded-md disabled:bg-gray-300 disabled:cursor-not-allowed"
+                        aria-label="Next Page of Past Events"
                     >
                         Next
                     </button>

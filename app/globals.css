@@ -31,6 +31,7 @@ a {
   width: 100%;
   z-index: 1000;
   transition: transform 0.3s ease-in-out;
+  box-sizing: border-box;
 }
 
 /* Hide navbar when scrolled down */
@@ -52,6 +53,7 @@ a {
   gap: 40px;
 }
 
+/* Navbar Links - Styling for each link */
 .navbar .nav-links li a {
   color: white;
   text-decoration: none;
@@ -63,6 +65,7 @@ a {
   transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
+/* Hover effect */
 .navbar .nav-links li a::after {
   content: "";
   position: absolute;
@@ -84,6 +87,62 @@ a {
   left: 0;
 }
 
+/* Hamburger Menu */
+.navbar .hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.navbar .hamburger div {
+  width: 30px;
+  height: 4px;
+  background-color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Mobile-First Design (Hamburger Menu on smaller screens) */
+@media (max-width: 768px) {
+  .navbar .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #007800;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  .navbar .nav-links.active {
+    display: flex;
+  }
+
+  .navbar .hamburger {
+    display: flex;
+  }
+
+  .navbar .hamburger.active div:nth-child(1) {
+    transform: rotate(45deg);
+    top: 8px;
+  }
+
+  .navbar .hamburger.active div:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar .hamburger.active div:nth-child(3) {
+    transform: rotate(-45deg);
+    top: -8px;
+  }
+
+  .navbar .nav-links li a {
+    font-size: 1.2rem;  /* Larger font size on mobile */
+  }
+}
 
 /* 🏠 Home Section */
 .home-main {
@@ -192,23 +251,83 @@ a {
 
 /* 📱 Responsive Adjustments */
 @media (max-width: 768px) {
-  .home-main h1 {
-    font-size: 2.5rem; /* Reduced font size for smaller screens */
+  /* Adjust background positioning */
+  .home-main::before {
+    background-position: center center;
   }
 
+  /* Reduced padding for mobile screens */
+  .home-main {
+    padding: 100px 20px;  /* Reduced top padding for smaller screens */
+  }
+
+  /* Heading adjustments for smaller screens */
+  .home-main h1 {
+    font-size: 2.5rem; /* Reduced font size for smaller screens */
+    margin: 0 10px;
+  }
+
+  /* Tagline adjustments */
   .home-main .tagline {
     font-size: 1.4rem;
   }
 
+  /* About link adjustments */
   .home-main .about-link {
     font-size: 1.2rem;
     padding: 10px 25px;
   }
 
+  /* CTA button adjustments */
   .home-main .cta-button {
     font-size: 1.1rem;
     padding: 12px 28px;
   }
+
+  /* Faster animation for mobile devices */
+  .home-main h1 {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .home-main .tagline {
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+  }
+
+  .home-main .about-link {
+    animation: fadeInUp 0.8s ease-out 0.4s forwards;
+  }
+
+  .home-main .cta-button {
+    animation: fadeInUp 0.8s ease-out 0.6s forwards;
+  }
+}
+
+/* 📱 Further adjustments for very small screens (e.g., mobile phones in portrait) */
+@media (max-width: 480px) {
+  /* Reduce padding and text alignment */
+  .home-main {
+    padding: 80px 15px;
+    text-align: center;
+  }
+
+  /* Further reduce font size for smaller screens */
+  .home-main h1 {
+    font-size: 2rem;
+  }
+
+  .home-main .tagline {
+    font-size: 1.2rem;
+  }
+
+  .home-main .about-link {
+    font-size: 1.1rem;
+  }
+
+  .home-main .cta-button {
+    font-size: 1rem;
+  }
+}
+
 
   /* Navbar Links Mobile Version */
   .navbar .nav-links {
@@ -250,7 +369,7 @@ a {
   .about-box p {
     font-size: 1rem;
   }
-}
+
 
 
 /* 🎞️ Smooth Fade-in Animation */
@@ -435,7 +554,6 @@ a {
   transform: translateY(-2px);
 }
 
-
 .pagination span {
   font-size: 1.1rem;
   color: #555;
@@ -483,6 +601,7 @@ a {
 
 
 
+
 /* Stats Section Styling */
 .stats-section {
   background-color: white;
@@ -500,12 +619,14 @@ a {
   margin-bottom: 2rem;
 }
 
+/* Stats Grid Layout */
 .stats-section .stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
 }
 
+/* Individual Stat Boxes */
 .stats-section .stat-box {
   background-color: #ffffff;
   padding: 20px;
@@ -514,33 +635,37 @@ a {
   transition: transform 0.3s ease-in-out;
 }
 
+/* Hover Effect for Stat Boxes */
 .stats-section .stat-box:hover {
   transform: translateY(-5px);
 }
 
+/* Stat Number Styling */
 .stats-section .stat-number {
   font-size: 3rem;
   font-weight: bold;
   color: #4caf50;
 }
 
+/* Stat Text Below Number */
 .stats-section .stat-text {
   font-size: 1.2rem;
   color: black;
   margin-top: 0.5rem;
 }
 
+/* Different Color for Second Stat */
 .stats-section .stat-box:nth-child(2) .stat-number {
   color: #ff9800;
 }
 
+/* Different Color for Third Stat */
 .stats-section .stat-box:nth-child(3) .stat-number {
   color: #9c27b0;
 }
 
 /* About Section Styling */
 .bg-about-page {
-
   position: absolute;
   top: 0;
   width: 100%;
@@ -549,6 +674,7 @@ a {
   background-size: cover;
 }
 
+/* About Box Styling */
 .about-box {
   text-align: center;
   padding: 30px;
@@ -558,6 +684,7 @@ a {
   margin-bottom: 2rem;
 }
 
+/* About Box Heading */
 .about-box h2 {
   font-size: 2.5rem;
   font-weight: 600;
@@ -565,6 +692,7 @@ a {
   margin-bottom: 1rem;
 }
 
+/* About Box Paragraph */
 .about-box p {
   font-size: 1.1rem;
   color: black;
@@ -572,9 +700,33 @@ a {
   margin-top: 1rem;
 }
 
+/* Hover Effect for About Box */
 .about-box:hover {
   transform: translateY(-5px);
   transition: transform 0.3s ease-in-out;
+}
+
+/* 📱 Mobile-Friendly Adjustments */
+@media (max-width: 768px) {
+  /* Stats Section Heading */
+  .stats-section h2 {
+    font-size: 1.6rem;
+  }
+
+  /* Stat Boxes Adjustments */
+  .stats-section .stat-box {
+    padding: 15px;
+  }
+
+  /* About Box Adjustments */
+  .about-box {
+    padding: 20px;
+  }
+
+  /* About Box Heading Adjustments */
+  .about-box h2 {
+    font-size: 2rem;
+  }
 }
 
 /* Responsive Design for Smaller Screens */
@@ -586,10 +738,6 @@ a {
 
   .home-main h1 {
     font-size: 2.5rem;
-  }
-
-  .events-list {
-    flex-direction: column;
   }
 
   .team-list {
@@ -622,6 +770,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 }
 
 .hero-box {
@@ -630,6 +779,12 @@ a {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
   text-align: center;
+  max-width: 90%; /* Adjusted for better responsiveness */
+  transition: transform 0.3s ease-in-out;
+}
+
+.hero-box:hover {
+  transform: translateY(-5px);
 }
 
 .hero-box h1 {
@@ -637,17 +792,13 @@ a {
   font-weight: bold;
   color: #007800;
   margin-bottom: 1rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .hero-box p {
   font-size: 1.1rem;
   color: black;
   line-height: 1.6;
-}
-
-.hero-box:hover {
-  transform: translateY(-5px);
-  transition: transform 0.3s ease-in-out;
 }
 
 /* Combined "Who We Are" and "What We Do" Section */
@@ -658,6 +809,11 @@ section.max-w-4xl {
   padding: 40px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+section.max-w-4xl:hover {
+  transform: translateY(-5px);
 }
 
 .section-content {
@@ -674,7 +830,66 @@ section.max-w-4xl {
   font-size: 1rem;
   color: black;
   line-height: 1.6;
+  margin-top: 1rem;
 }
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+  /* Hero Section */
+  .hero-section {
+    height: 50vh; /* Adjust height for smaller screens */
+  }
+
+  .hero-box {
+    padding: 20px; /* Adjust padding for smaller screens */
+  }
+
+  .hero-box h1 {
+    font-size: 2.2rem; /* Smaller font size */
+  }
+
+  .hero-box p {
+    font-size: 1rem; /* Smaller paragraph text */
+  }
+
+  /* "Who We Are" / "What We Do" Section */
+  section.max-w-4xl {
+    max-width: 90%; /* Take up more space on smaller screens */
+    padding: 20px; /* Adjust padding for small screens */
+  }
+
+  .section-content h2 {
+    font-size: 1.6rem; /* Smaller heading on small screens */
+  }
+
+  .section-content p {
+    font-size: 0.95rem; /* Smaller paragraph text */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further adjustments for very small screens (phones) */
+  .hero-section {
+    height: 40vh; /* Further reduce height on very small screens */
+  }
+
+  .hero-box h1 {
+    font-size: 1.8rem; /* Even smaller font size */
+  }
+
+  .hero-box p {
+    font-size: 0.95rem; /* Slightly smaller paragraph text */
+  }
+
+  .section-content h2 {
+    font-size: 1.4rem; /* Adjust heading size for small devices */
+  }
+
+  .section-content p {
+    font-size: 0.9rem; /* Smaller paragraph text for readability */
+  }
+}
+
 
 /* Team Section */
 .team-section {
@@ -693,6 +908,7 @@ section.max-w-4xl {
   margin-bottom: 2rem;
 }
 
+/* Team List Grid */
 .team-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -716,6 +932,7 @@ section.max-w-4xl {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Team Member Image */
 .team-member-img {
   width: 180px;
   height: 180px;
@@ -725,6 +942,7 @@ section.max-w-4xl {
   margin-bottom: 15px;
 }
 
+/* Team Member Name and Role */
 .team-member h3 {
   color: #007800;
   margin-top: 10px;
@@ -749,7 +967,7 @@ section.max-w-4xl {
 /* Social Media Links */
 .social-links a {
   font-size: 1.5rem;
-  color: inherit; /* Inherit the color from the icons */
+  color: inherit;
   transition: color 0.3s ease;
   display: inline-block;
   text-decoration: none;
@@ -758,35 +976,65 @@ section.max-w-4xl {
 /* Social Media Icons */
 .social-icon {
   display: inline-block;
-
 }
 
 .social-icon i {
   font-size: 1.5rem;
-  color: ghostwhite; /* Ensures the color of the icon inherits the default color */
+  color: ghostwhite;
   transition: color 0.3s ease;
 }
 
-/* Hover Effects */
+/* Hover Effects for Social Links */
 .social-links a:hover {
-  color: #ffcc00; /* Hover effect for the icons */
+  color: #ffcc00;
 }
 
 /* Facebook Icon */
 .social-icon.facebook:hover i {
-  color: #3b5998; /* Facebook color on hover */
+  color: #3b5998;
 }
-
-
 
 /* LinkedIn Icon */
 .social-icon.linkedin:hover i {
-  color: #0077b5; /* LinkedIn color on hover */
+  color: #0077b5;
 }
 
+/* 📱 Mobile / Tablet View */
+@media (max-width: 768px) {
+  .team-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    gap: 20px; /* Smaller gap */
+  }
 
+  .team-member {
+    width: 100%; /* Allow team members to take full width on smaller screens */
+    max-width: 300px; /* Set a max width */
+  }
 
+  .team-section h2 {
+    font-size: 2rem; /* Smaller title for small screens */
+  }
+}
 
+@media (max-width: 480px) {
+  /* Further adjustments for small screens */
+  .team-list {
+    grid-template-columns: 1fr; /* Single column layout on very small screens */
+  }
+
+  .team-member {
+    width: 100%; /* Full width for each member */
+    max-width: 280px; /* Slightly smaller max-width */
+  }
+
+  .team-section h2 {
+    font-size: 1.8rem; /* Even smaller heading on very small screens */
+  }
+
+  .social-icon i {
+    font-size: 1.2rem; /* Slightly smaller social icons on small screens */
+  }
+}
 
 /* Footer */
 .footer {
@@ -795,44 +1043,51 @@ section.max-w-4xl {
   text-align: center;
   padding: 20px;
   position: relative;
-  bottom: 0; /* Initially hide the footer */
+  bottom: 0;
   width: 100%;
   z-index: 1000;
   transition: opacity 0.3s ease-in-out;
+}
+
+/* Make Footer Sticky */
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.main-content {
+  min-height: 100vh; /* Ensures content takes full viewport height */
+  padding-bottom: 60px; /* Adds space for the footer */
 }
 
 .footer.visible {
   opacity: 1;
 }
 
+.footer.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
 
-
+/* Social Links */
 .social-links a {
   color: white;
   margin: 0 10px;
   font-size: 1.5rem;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .social-links a:hover {
   color: #ffcc00;
+  transform: translateY(-5px); /* Slight lift on hover */
 }
 
-/* Responsive Design */
+/* Mobile Responsiveness for Footer */
 @media (max-width: 768px) {
-  .navbar .nav-links {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .home-main h1 {
-    font-size: 2.5rem;
-  }
-
-  .events-list {
-    flex-direction: column;
-  }
-
-  .team-list {
-    flex-direction: column;
+  .social-links a {
+    font-size: 1.3rem; /* Slightly smaller icons on mobile */
   }
 }
+
+
+
