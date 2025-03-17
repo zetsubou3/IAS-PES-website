@@ -6,24 +6,25 @@ import Footer from '../components/Footer';
 import EventCard from '../components/EventCard';
 import '../globals.css';
 
+
 const upcomingEvents = [
     {
         title: 'Stay Tuned!',
         date: '',
         description: 'Check back soon for updates!',
-        imageUrl: '/images/events/stay-tuned.jpg', // You can replace this with a placeholder image
+        imageUrl: '/images/events/stay-tuned.png', // You can replace this with a placeholder image
     },
     {
         title: 'Stay Tuned!',
         date: '',
         description: 'Check back soon for updates!',
-        imageUrl: '/images/events/stay-tuned.jpg', // You can replace this with a placeholder image
+        imageUrl: '/images/events/stay-tuned.png', // You can replace this with a placeholder image
     },
     {
         title: 'Stay Tuned!',
         date: '',
         description: 'Check back soon for updates!',
-        imageUrl: '/images/events/stay-tuned.jpg', // You can replace this with a placeholder image
+        imageUrl: '/images/events/stay-tuned.png', // You can replace this with a placeholder image
     },
 ];
 
