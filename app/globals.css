@@ -1088,6 +1088,10 @@ body, html {
     font-size: 1.3rem; /* Slightly smaller icons on mobile */
   }
 }
+/* Add padding to prevent navbar from overlapping content */
+.min-h-screen {
+  padding-top: 80px; /* Add enough space to account for the navbar height */
+}
 
 
 
