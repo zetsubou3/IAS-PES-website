@@ -16,11 +16,11 @@ export default function EventCard({ title, date, description, imageUrl }: EventC
                 alt={title}
                 width={150}  // Set a fixed width
                 height={150} // Set a fixed height
-                className="event-image object-cover"
+                className="event-image object-cover mb-4" // Added margin-bottom for spacing
             />
             <h2>{title}</h2>
             <p className="event-date">{date}</p>
-            <p>{description}</p>
+            <p className="event-description">{description}</p>
         </div>
     );
 }
