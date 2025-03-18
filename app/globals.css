@@ -49,7 +49,8 @@ a {
 /* Navbar Links Styling */
 .navbar .nav-links {
   list-style-type: none;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 40px;
 }
 
@@ -393,46 +394,7 @@ a {
   font-family: "Poppins", sans-serif; /* Modern, clean font */
 }
 
-/* 🎭 Centered Heading */
-.events-intro {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.events-intro h1 {
-  font-size: 2.8rem;
-  color: #166534;
-  font-weight: 800;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
-}
-
-.events-intro p {
-  font-size: 1.3rem;
-  color: #444;
-  font-weight: 500;
-  line-height: 1.8;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* 🌿 Event List - Horizontal Scroll on Small Screens */
-.events-list {
-  display: flex;
-  flex-wrap: nowrap; /* Default: No wrapping for horizontal scroll */
-  gap: 20px;
-  width: 100%;
-  padding-bottom: 10px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scrollbar-width: none; /* Hide scrollbar in Firefox */
-}
-
-.events-list::-webkit-scrollbar {
-  display: none; /* Hide scrollbar in Chrome & Safari */
-}
-
-/* 🎟️ Event Cards */
+/* 🎟️ Event Cards - Modern Look */
 .event-card {
   background: white;
   border-radius: 12px;
@@ -443,8 +405,9 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  width: 280px; /* Default width for scrolling */
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -484,56 +447,66 @@ a {
   max-width: 280px;
 }
 
-/* 🌿 Adjust Layout for Large Screens */
+/* 🎨 Event List - Responsive Grid */
+.events-list {
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+/* 📱 Tablet View */
+@media (min-width: 640px) {
+  .events-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 💻 Desktop View */
 @media (min-width: 1024px) {
   .events-list {
-    display: flex;
-    flex-wrap: wrap; /* Allow multiple rows */
-    justify-content: center;
-    max-width: 1200px; /* Limit width */
-    margin: 0 auto;
-    overflow-x: hidden; /* Disable horizontal scroll when wrapping */
-  }
-
-  .event-card {
-    flex: 1 1 calc(33.33% - 20px); /* 3 cards per row */
-    max-width: 320px;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* 🔄 Scroll Buttons */
-.scroll-btn {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 20px;
-  transform: translateY(-50%);
-  z-index: 10;
+/* 🔄 Smooth Fade-in Animation */
+.event-list {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
-.scroll-btn button {
-  background-color: #006400;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  padding: 12px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+.event-list.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.scroll-btn button:hover {
-  background-color: #004d00;
-  transform: scale(1.1);
+/* 🎭 Centered Heading */
+.events-intro {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-/* Hide Scroll Buttons on Large Screens */
-@media (min-width: 1024px) {
-  .scroll-btn {
-    display: none;
-  }
+.events-intro h1 {
+  font-size: 2.8rem;
+  color: #166534;
+  font-weight: 800;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
 }
+
+.events-intro p {
+  font-size: 1.3rem;
+  color: #444;
+  font-weight: 500;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
 
 /* 🔢 Pagination */
 .pagination {
@@ -611,43 +584,6 @@ a {
   padding: 2rem 1rem;
 }
 
-/* 🌿 Events List Container (For Pagination) */
-.events-list-container {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  justify-content: space-between;
-  gap: 20px;
-  width: 100%;
-  padding: 0 10px;
-  scroll-behavior: smooth;
-  padding-bottom: 30px;
-  max-width: 1200px;
-}
-
-.events-list-container::-webkit-scrollbar {
-  display: none;
-}
-
-/* 🌿 Scrollable Cards - Ensure Pagination Works Well */
-.event-card-container {
-  flex: 0 0 100%; /* Full width by default */
-  max-width: 100%;
-}
-
-@media (min-width: 640px) {
-  .event-card-container {
-    flex: 0 0 50%; /* 2 per row on medium screens */
-    max-width: 50%;
-  }
-}
-
-@media (min-width: 1024px) {
-  .event-card-container {
-    flex: 0 0 33.33%; /* 3 per row on large screens */
-    max-width: 33.33%;
-  }
-}
 
 
 /* Stats Section Styling */
@@ -709,8 +645,15 @@ a {
 
 /* Different Color for Third Stat */
 .stats-section .stat-box:nth-child(3) .stat-number {
+  color: #27a5b0;
+}
+.stats-section .stat-box:nth-child(4) .stat-number {
+  color: #ef2178;
+}
+.stats-section .stat-box:nth-child(5) .stat-number {
   color: #9c27b0;
 }
+
 
 /* About Section Styling */
 .bg-about-page {
@@ -1028,7 +971,7 @@ section.max-w-4xl:hover {
 
 .social-icon i {
   font-size: 1.5rem;
-  color: ghostwhite;
+  color: gray;
   transition: color 0.3s ease;
 }
 

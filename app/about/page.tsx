@@ -100,8 +100,16 @@ export default function About() {
                             <div className="stat-text">Annual Activities</div>
                         </div>
                         <div className="stat-box">
+                            <div className="stat-number">2016</div>
+                            <div className="stat-text">IAS Establishment Year</div>
+                        </div>
+                        <div className="stat-box">
+                            <div className="stat-number">2018</div>
+                            <div className="stat-text">PES Establishment Year</div>
+                        </div>
+                        <div className="stat-box">
                             <div className="stat-number">2023</div>
-                            <div className="stat-text">Foundation Year</div>
+                            <div className="stat-text">Joint Chapter Establishment Year</div>
                         </div>
                     </div>
                 </section>
