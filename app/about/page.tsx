@@ -66,7 +66,7 @@ export default function About() {
                     <div className="section-content">
                         <h2 className="text-3xl font-semibold text-green-600">Who We Are</h2>
                         <p className="text-lg text-gray-700 leading-relaxed mt-4">
-                            The IEEE ENIT IAS-PES Joint Chapter brings together students at the National Engineering School
+                            The IEEE IAS-PES ENIT Student Branch Joint Chapter brings together students at the National Engineering School
                             of Tunis (ENIT) to explore advancements in industrial applications, power systems, and energy
                             solutions. It was formed from the merger of the IEEE IAS ENIT Student Branch Chapter
                             (established in 2016) and the IEEE PES ENIT Student Branch Chapter (established in 2018),
