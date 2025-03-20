@@ -114,13 +114,6 @@ const pastEvents = [
     },
 
     {
-        title: 'PESTGM Infosession',
-        date: '2024-06-04',
-        description: 'An infosession on PESTGM, discussing trends in power and energy.',
-        imageUrl: '/images/events/pestgm.jpg'
-    },
-
-    {
         title: 'Safran Company Visit',
         date: '2024-05-08',
         description: 'A company visit to Safran, providing insights into aerospace technologies.',
@@ -155,6 +148,12 @@ const pastEvents = [
         date: '2024-04-22',
         description: 'The inaugural COPx event, discussing climate change and global energy challenges.',
         imageUrl: '/images/events/copx.jpg'
+    },
+    {
+        title: 'Solidworks Workshop',
+        date: '2024-04-16',
+        description: 'A workshop on SolidWorks covering 3D modeling, assembly design, and engineering analysis for practical applications.',
+        imageUrl: '/images/events/solidworks-workshop.jpg'
     },
     {
         title: 'Sponsoring Workshop',
